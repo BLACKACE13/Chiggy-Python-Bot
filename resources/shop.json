@@ -1,0 +1,57 @@
+{
+  "food": {
+    "description": "Feeling hungry? Buy something to eat!",
+    "items": {
+      "tea": {
+        "description": "Aromatic beverage prepared by pouring hot or boiling water over cured or fresh leaves of Camellia sinensis",
+        "cost": 15,
+        "image": "https://i.imgur.com/NEzEQSq.png"
+      },
+      "coffee": {
+        "description": "Brewed drink prepared from roasted coffee beans, the seeds of berries from certain flowering plants in the Coffea genus.",
+        "cost": 50,
+        "image": "https://i.imgur.com/F5z8isV.png"
+      },
+      "cookie": {
+        "description": "Cookies are small blocks of data created by a web server but you can eat them.",
+        "cost": 5,
+        "image": "https://cdn.discordapp.com/emojis/423020737364885525.gif?size=56&quality=lossless"
+      }
+    }
+  },
+  "pets": {
+    "description": "Searching for a true best friend!?",
+    "items": {
+      "dog": {
+        "description": null,
+        "cost": 10000,
+        "image": "https://i.imgur.com/93HBhSX.gif"
+      }
+    }
+  },
+  "gadgets": {
+    "description": "Gadgets to make your life just awesome",
+    "items": {
+      "phone": {
+        "description": null,
+        "cost": 30000,
+        "image": "https://i.imgur.com/A1ku1vm.png"
+      },
+      "smartwatch": {
+        "description": "Wear it on you wrist and move in style",
+        "cost": 5000,
+        "image": "https://i.imgur.com/A4rLrzE.png"
+      }
+    }
+  },
+  "flowers": {
+    "description": "Beatuiful Flowers to decorate or gift someone",
+    "items": {
+      "rose": {
+        "description": null,
+        "cost": 300,
+        "image": "https://i.imgur.com/B78pZsb.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+discord.py[voice]
+requests
+py_dotenv
+animalapi
+psutil
+mysql

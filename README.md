@@ -1,6 +1,6 @@
-# ✨ Pheonix's Documentation
+# ✨ Chiggy's Documentation
 
-## 🚧 Pheonix's Info
+## 🚧 Ghiggy's Info
 
 - Pheonix is a multipurpose bot.
 - It includes features such as music, moderation, fun, etc.

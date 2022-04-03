@@ -117,7 +117,7 @@ async def add_item(uid, item ,amount):
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
 
     with open(prefetcher_file) as f:
-            inventory_data = json.load(f)
+        inventory_data = json.load(f)
     if str(uid) in inventory_data:
         inventory_data[str(uid)][item] = inventory_data[str(uid)][item] + amount
     else:

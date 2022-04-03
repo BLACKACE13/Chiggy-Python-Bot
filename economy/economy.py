@@ -76,7 +76,9 @@ class Bot(commands.Cog):
     @commands.command(name='buy')
     async def buy(self,ctx,item,amount=1):
         await checks.user_check_inventory(ctx.author.id)
+ 
         await checks.user_check_cash(ctx.author.id)
+
 
         item_cost = json.load(open(r"./resources/itemcost.json"))
         
@@ -86,13 +88,15 @@ class Bot(commands.Cog):
         price= amount*cost
 
         if await functions.check_balance(ctx.author.id) < price:
+   
             await ctx.send(f"**{ctx.author.name}** you don't even have that much chigs... " )
         
         else:
             await functions.remove_balance(ctx.author.id,price)
-            await functions.cash_postsyncer([ctx.author.id])
+            await functions.cash_postsyncer([ctx.author.id])         
             await functions.add_item(ctx.author.id,item,amount)
-            await functions.inventory_postsyncer([ctx.author.id])
+            await functions.inventory_postsyncer([str(ctx.author.id)])
+   
             await ctx.send(f"**{ctx.author.name}** purchased {amount}{item} for {price}!" )
 
 

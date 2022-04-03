@@ -22,12 +22,15 @@ async def user_check_inventory(uid):
     Checks for a user in the database and if it does not exists adds it in the database.
     """
     inventory_cache_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
+
     with open(inventory_cache_file) as f:
         inventory_data = json.load(f)
+    
     if str(uid) not in inventory_data:
+     
         db = con.create_conn()
         cursor = db.cursor()
-        cursor.execute(f"INSERT INTO INVENTORY VALUES({uid} , 0 ,0,0,0,0,0,0)")
+        cursor.execute(f"INSERT INTO INVENTORY VALUES({uid} , 0 ,0,0,0,0,0,0)") 
         inventory_data[str(uid)] = {
         "tea": 0,
         "coffee": 0,

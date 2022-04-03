@@ -15,7 +15,7 @@ class Bot(commands.Cog):
             return
         user = user or ctx.author
         uid = user.id
-        await checks.user_check(uid)
+        await checks.user_check_cash(uid)
         cash = await functions.check_balance(str(uid))
 
         await ctx.reply(f"<:chigs:937640062332571699> **{user.name}** currently has **{cash:,}** chigs.")
@@ -29,25 +29,25 @@ class Bot(commands.Cog):
            if cash is None or user is None : await ctx.send(f"❗Invalid arguments **{ctx.author.name}** |Please include cash and the user. ") 
            elif cash < 0: await ctx.send(f"**{ctx.author.name}** Well are you basically trying to rob **{user.name}** _tch tch_...")
            else:
-            await checks.user_check(ctx.author.id)
+            await checks.user_check_cash(ctx.author.id)
             if await functions.check_balance(ctx.author.id) < cash:
                  await ctx.send(f"**{ctx.author.name}** you cannot send that much chigs... " )
             else:
-                await checks.user_check(user.id)
+                await checks.user_check_cash(user.id)
                 
                 await functions.add_balance(user.id,cash)
                 await functions.remove_balance(ctx.author.id,cash)
                  
                 await ctx.send(f"**{ctx.author.name}** sent {cash} chigs <:chigs:937640062332571699> to **{user.name}**!")
-                await functions.postsyncer([user.id,ctx.author.id])
+                await functions.cash_postsyncer([user.id,ctx.author.id])
         else: 
             await ctx.send(f"❗Invalid arguments **{ctx.author.name}** |Please include cash and the user. ")
-        
+
 
     @commands.cooldown(1, 15, commands.BucketType.user)
     @commands.command(name='beg')
     async def beg(self,ctx):
-        await checks.user_check(ctx.author.id)
+        await checks.user_check_cash(ctx.author.id)
         prob=random.choice(['yes', 'no','maybe'])
         if prob == 'yes':
             beg_amount=random.randint(50,350)
@@ -61,6 +61,13 @@ class Bot(commands.Cog):
             'Ask me later, not in the mood now xD .']
             await ctx.reply(random.choice(phrases))
         await functions.cash_postsyncer([ctx.author.id])
+
+    @commands.cooldown(1, 15, commands.BucketType.user)
+    @commands.command(name='buy')
+    async def buy(self,ctx,*args):
+        await checks.user_check_inventory(ctx.author.id)
+        print(args)
+
 
 def setup(bot):
     bot.add_cog(Bot(bot))

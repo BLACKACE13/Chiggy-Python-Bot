@@ -3,33 +3,45 @@ import os.path
 import json
 
 async def user_check_cash(uid):
-    prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
-    with open(prefetcher_file) as f:
+    """
+    Checks for a user in the database and if it does not exists adds it in the database.
+    """
+    cash_cache_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
+    with open(cash_cache_file) as f:
         cash_data = json.load(f)
     if str(uid) not in cash_data:
         db = con.create_conn()
         cursor = db.cursor()
         cursor.execute(f"INSERT INTO CASH(id) VALUES({uid})")
         cash_data[str(uid)] = 20000
-        with open(prefetcher_file, "w") as f:
+        with open(cash_cache_file, "w") as f:
             json.dump(cash_data, f, indent=4)
 
 async def user_check_inventory(uid):
-    prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
-    with open(prefetcher_file) as f:
-        cash_data = json.load(f)
-    if str(uid) not in cash_data:
+    """
+    Checks for a user in the database and if it does not exists adds it in the database.
+    """
+    inventory_cache_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
+    with open(inventory_cache_file) as f:
+        inventory_data = json.load(f)
+    if str(uid) not in inventory_data:
         db = con.create_conn()
         cursor = db.cursor()
-        cursor.execute(f"INSERT INTO INVENTORY(id) VALUES({uid})")
-        cash_data[str(uid)] = 20000
-        with open(prefetcher_file, "w") as f:
-            json.dump(cash_data, f, indent=4)
+        cursor.execute(f"INSERT INTO INVENTORY VALUES({uid} , 0 ,0,0,0,0,0,0)")
+        inventory_data[str(uid)] = {
+        "tea": 0,
+        "coffee": 0,
+        "cookie": 0,
+        "dog": 0,
+        "phone": 0,
+        "smartwatch": 0,
+        "rose": 0
+    }
+        with open(inventory_cache_file, "w") as f:
+            json.dump(inventory_data, f, indent=4)
 
-async def user_check(uid):
-    await user_check_cash(uid)
-    await user_check_inventory(uid)
-    
+
+
 async def table_check():
     db = con.create_conn()
     cursor = db.cursor()

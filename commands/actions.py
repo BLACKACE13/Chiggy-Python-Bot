@@ -5,8 +5,9 @@ import json
 class Actions(commands.Cog):
     def __init__(self, bot):
         with open(r"./resources/gifs.json") as f:
-            self.gif_data = json.load(f)
+            gif_data = json.load(f)
         self.bot = bot
+        self.gif_data = gif_data
               
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)

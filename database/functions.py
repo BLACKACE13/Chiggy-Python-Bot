@@ -105,7 +105,7 @@ async def add_item(uid, item ,amount):
         json.dump(inventory_data, f, indent=4)
 
 
-async def remove_remove(uid,item, amount):
+async def item_remove(uid,item, amount):
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
 
     with open(prefetcher_file) as f:

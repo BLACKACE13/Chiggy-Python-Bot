@@ -10,7 +10,7 @@ class Gamble(commands.Cog):
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(aliases=["cf"])
     async def coinflip(self, ctx, *args):
-        await checks.user_check(ctx.author.id)
+        await checks.user_check_cash(ctx.author.id)
         bet = 1
         heads = ["h","heads","head","H"]
         tails = ["t","tail","tails","T"]
@@ -46,18 +46,19 @@ class Gamble(commands.Cog):
                 if choice==win_condition:
                    await message.edit(content=f"**{ctx.author.name}** spent {bet} <:chigs:937640062332571699> and chose {choice}\nThe coin spins...and you won {win_amount} <:chigs:937640062332571699> !! ")
                    await functions.add_balance(ctx.author.id,bet)
+                   await functions.cash_postsyncer([ctx.author.id])
             
                 if choice!=win_condition:
                    await message.edit(content=f"**{ctx.author.name}** spent {bet} <:chigs:937640062332571699> and chose {choice}\nThe coin spins...and you lost it...")
                    await functions.remove_balance(ctx.author.id,bet)
-
+                   await functions.cash_postsyncer([ctx.author.id])
 
 
 
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.command(aliases=["rd"])
     async def rolldice(self, ctx,bet_amount=1):
-        await checks.user_check(ctx.author.id)
+        await checks.user_check_cash(ctx.author.id)
 
         choice= random.choice([2,random.randint(1,6)])
         win_condition= random.choice([2,random.randint(1,6)])

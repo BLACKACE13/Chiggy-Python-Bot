@@ -97,10 +97,27 @@ class Bot(commands.Cog):
             await functions.add_item(ctx.author.id,item,amount)
             await functions.inventory_postsyncer([str(ctx.author.id)])
    
-            await ctx.send(f"**{ctx.author.name}** purchased {amount}{item} for {price}!" )
+            await ctx.send(f"**{ctx.author.name}** || purchased {amount} {item} for {price} <:chigs:937640062332571699>!" )
 
+    @commands.cooldown(1, 15, commands.BucketType.user)
+    @commands.command()
+    async def inv(self, ctx):
+        prefetcher_file = os.path.join(os.path.dirname(__file__), "../database/prefetch_data/inventory_cache.json")
+        with open(prefetcher_file) as f:
+            inventory_data = json.load(f)
+        user_data = inventory_data[str(ctx.author.id)]
+        inv = ""
+        for item in user_data:
+            if user_data[item] > 0:
+                inv =  inv + item.title() +  ' - ' + str(user_data[item]) + "\n"
 
+        embed = discord.Embed(
+                title=f"{ctx.author.name}'s Inventory",
+                description=f"{inv}",
+                colour=ctx.author.colour,
+            )
 
+        await ctx.channel.send(embed = embed)
 
 
 def setup(bot):

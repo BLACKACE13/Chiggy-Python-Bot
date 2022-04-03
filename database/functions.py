@@ -106,10 +106,7 @@ async def inventory_postsyncer(uid_list):
         data = json.load(f)
     db = con.create_conn()
     cursor = db.cursor()
-    print(data)
     for uid in uid_list:
-        print(uid_list)
-        print(uid)
         cursor.execute(f'UPDATE INVENTORY SET tea = {data[(uid)]["tea"]} ,coffee =  {data[uid]["coffee"]},cookie = {data[uid]["cookie"]},dog = {data[uid]["dog"]},phone = {data[uid]["phone"]} , smartwatch = {data[uid]["smartwatch"]} , rose = {data[uid]["rose"]} WHERE id = "{uid}"')
 
 
@@ -130,7 +127,7 @@ async def add_item(uid, item ,amount):
         json.dump(inventory_data, f, indent=4)
 
 
-async def item_remove(uid,item, amount):
+async def remove_item(uid,item, amount):
     """
     Removes the item to their inventory data.
     """

@@ -4,17 +4,17 @@
     "items": {
       "tea": {
         "description": "Aromatic beverage prepared by pouring hot or boiling water over cured or fresh leaves of Camellia sinensis",
-        "cost": 15,
+        "cost": 600,
         "image": "https://i.imgur.com/NEzEQSq.png"
       },
       "coffee": {
         "description": "Brewed drink prepared from roasted coffee beans, the seeds of berries from certain flowering plants in the Coffea genus.",
-        "cost": 50,
+        "cost": 850,
         "image": "https://i.imgur.com/F5z8isV.png"
       },
       "cookie": {
         "description": "Cookies are small blocks of data created by a web server but you can eat them.",
-        "cost": 5,
+        "cost": 500,
         "image": "https://cdn.discordapp.com/emojis/423020737364885525.gif?size=56&quality=lossless"
       }
     }
@@ -34,12 +34,12 @@
     "items": {
       "phone": {
         "description": null,
-        "cost": 30000,
+        "cost": 50000,
         "image": "https://i.imgur.com/A1ku1vm.png"
       },
       "smartwatch": {
         "description": "Wear it on you wrist and move in style",
-        "cost": 5000,
+        "cost": 15000,
         "image": "https://i.imgur.com/A4rLrzE.png"
       }
     }

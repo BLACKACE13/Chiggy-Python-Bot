@@ -11,10 +11,8 @@
     "https://media.giphy.com/media/7ZsnUYLno9IWI/giphy.gif",
     "https://cdn.weeb.sh/images/rkIK_u7Pb.gif",
     "https://cdn.weeb.sh/images/r1bAksn0W.gif"
-
-    
   ],
-  "pat": [],
-  "kill": [],
-  "punch": []
+  "pat": ["https://cdn.weeb.sh/images/H1Vc1yYwW.gif"],
+  "kill": ["https://cdn.weeb.sh/images/B1VnoJFDZ.gif"],
+  "punch": ["https://cdn.weeb.sh/images/ByI7vTb-G.gif"]
 }

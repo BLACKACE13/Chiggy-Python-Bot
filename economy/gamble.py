@@ -11,9 +11,11 @@ class Gamble(commands.Cog):
     @commands.command(aliases=["cf"])
     async def coinflip(self, ctx, *args):
         await checks.user_check_cash(ctx.author.id)
+
         bet = 1
         heads = ["h","heads","head","H"]
         tails = ["t","tail","tails","T"]
+
         if len(args) > 2:
             return await ctx.send(f"❗Invalid arguments **{ctx.author.name}**|Please include the betting amount and the choice[optional]. ")
         if args:
@@ -21,6 +23,7 @@ class Gamble(commands.Cog):
                 if amt.isdigit():
                     bet = int(amt)
                     break
+
             for choi in args:
                 if choi.lower() in tails:
                     choice = "Tails"
@@ -43,12 +46,15 @@ class Gamble(commands.Cog):
            
                 message=await ctx.send(f"**{ctx.author.name}** spent {bet} <:chigs:937640062332571699> and chose {choice}\nThe coin spins... <a:cf:939070721504706572>")
                 await asyncio.sleep(2)
+                
                 if choice==win_condition:
+
                    await message.edit(content=f"**{ctx.author.name}** spent {bet} <:chigs:937640062332571699> and chose {choice}\nThe coin spins...and you won {win_amount} <:chigs:937640062332571699> !! ")
                    await functions.add_balance(ctx.author.id,bet)
                    await functions.cash_postsyncer([ctx.author.id])
             
                 if choice!=win_condition:
+
                    await message.edit(content=f"**{ctx.author.name}** spent {bet} <:chigs:937640062332571699> and chose {choice}\nThe coin spins...and you lost it...")
                    await functions.remove_balance(ctx.author.id,bet)
                    await functions.cash_postsyncer([ctx.author.id])

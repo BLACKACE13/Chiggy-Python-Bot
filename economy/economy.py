@@ -13,8 +13,10 @@ class Bot(commands.Cog):
     async def cash(self, ctx ,user: discord.Member = None):
         if str(ctx.message.channel.type) == "private":
             return
+
         user = user or ctx.author
         uid = user.id
+
         await checks.user_check_cash(uid)
         cash = await functions.check_balance(str(uid))
 
@@ -28,10 +30,13 @@ class Bot(commands.Cog):
            cash = int(cash) 
            if cash is None or user is None : await ctx.send(f"❗Invalid arguments **{ctx.author.name}** |Please include cash and the user. ") 
            elif cash < 0: await ctx.send(f"**{ctx.author.name}** Well are you basically trying to rob **{user.name}** _tch tch_...")
+
            else:
+
             await checks.user_check_cash(ctx.author.id)
             if await functions.check_balance(ctx.author.id) < cash:
                  await ctx.send(f"**{ctx.author.name}** you cannot send that much chigs... " )
+
             else:
                 await checks.user_check_cash(user.id)
                 
@@ -47,8 +52,10 @@ class Bot(commands.Cog):
     @commands.cooldown(1, 15, commands.BucketType.user)
     @commands.command(name='beg')
     async def beg(self,ctx):
+
         await checks.user_check_cash(ctx.author.id)
         prob=random.choice(['yes', 'no','maybe'])
+
         if prob == 'yes':
             beg_amount=random.randint(50,350)
             phrases=[f'Oh poor! I have only {beg_amount} <:chigs:937640062332571699> to give.',f'You got {beg_amount} <:chigs:937640062332571699> from the strangers passing by.',
@@ -56,9 +63,11 @@ class Bot(commands.Cog):
 
             await ctx.reply(random.choice(phrases))
             await functions.add_balance(ctx.author.id,beg_amount)
+
         if prob != 'yes':
             phrases=['Can you please stop begging everytime!','You may just ask your friend to give you some chigs instead of begging.',
             'Ask me later, not in the mood now xD .']
+            
             await ctx.reply(random.choice(phrases))
         await functions.cash_postsyncer([ctx.author.id])
 

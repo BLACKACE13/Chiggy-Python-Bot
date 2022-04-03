@@ -13,8 +13,10 @@ class Ready(commands.Cog):
             status=discord.Status.idle, activity=discord.Game("_help")
         )
         print("We have logged in as {0.user}".format(self.bot))
+
         await checks.table_check()
         await functions.cash_prefetcher()
         await functions.inventory_prefetcher()
+        
 def setup(bot):
     bot.add_cog(Ready(bot))

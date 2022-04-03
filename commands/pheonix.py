@@ -1,6 +1,7 @@
 import discord, json, psutil, os
 from discord.ext import commands
-tera = {
+
+help_data = {
     "fields": [
        
         {"inline": False,"name": "> <:catpeek:932317409170300948> ANIMALS ","value": "```cat , dog , bird , fox , kangaroo , koala , panda , raccoon ```"},
@@ -24,11 +25,13 @@ class Main(commands.Cog):
     @commands.cooldown(1, 30, commands.BucketType.user)
     async def help_command(self, ctx):
         prefix = await self.bot.get_prefix(ctx.message)
-        helpembed = discord.Embed.from_dict(tera)
+
+        helpembed = discord.Embed.from_dict(help_data)
         helpembed.set_footer(
             text=f"Requested by {ctx.author.name} || Prefix for this server is -> {prefix[2]}",
             icon_url=ctx.author.avatar_url,
         )
+
         msg = await ctx.send(embed=helpembed)
         await msg.add_reaction("✨")
 
@@ -38,13 +41,16 @@ class Main(commands.Cog):
     async def ping(self, ctx):
         if str(ctx.message.channel.type) == "private":
             return
+
         em = discord.Embed(color=0xFFBE0D)
         em.title = "Pong!"
         em.description = f":green_circle: {round(self.bot.latency * 1000)} ms"
+
         await ctx.reply(embed=em)
 
     @commands.command(aliases=["botinfo"])
     async def stats(self, ctx):
+        
         ram_aval = psutil.virtual_memory().available * 1e-09
         ram_total = psutil.virtual_memory().total * 1e-09
         process = psutil.Process(os.getpid())

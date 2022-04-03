@@ -43,6 +43,9 @@ async def user_check_inventory(uid):
 
 
 async def table_check():
+    """
+    Checks if the tables are available in the database if not creates.
+    """
     db = con.create_conn()
     cursor = db.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS CASH(id VARCHAR(255) , cash BIGINT DEFAULT 20000)")

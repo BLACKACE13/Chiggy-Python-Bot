@@ -3,6 +3,9 @@ import os.path
 import json
 
 async def check_balance(uid):
+    """
+    Returns the balance of the user from their user id.
+    """
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
     with open(prefetcher_file) as f:
         data = json.load(f)
@@ -10,6 +13,9 @@ async def check_balance(uid):
 
 
 async def add_balance(uid, amount):
+    """
+    Adds the given amount to the respected user.
+    """
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
 
     with open(prefetcher_file) as f:
@@ -24,6 +30,9 @@ async def add_balance(uid, amount):
 
 
 async def remove_balance(uid, amount):
+    """
+    Removes the given amount from the respected user.
+    """
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
 
     with open(prefetcher_file) as f:
@@ -38,6 +47,10 @@ async def remove_balance(uid, amount):
         json.dump(cash_data, f, indent=4)
 
 async def cash_prefetcher():
+    """
+    Prefetches the data from the database and stores in the json file.
+    """
+
     prefetched_cash_data = {}
     prefetcher_cash_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
     db = con.create_conn()
@@ -50,6 +63,9 @@ async def cash_prefetcher():
             json.dump(prefetched_cash_data, f, indent=4)
 
 async def cash_postsyncer(uid_list):
+    """
+    Syncs the data from the json file to the database.
+    """
     postsyncer_cash_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/cash_cache.json")
     with open(postsyncer_cash_file) as f:
         data = json.load(f)
@@ -59,6 +75,9 @@ async def cash_postsyncer(uid_list):
         cursor.execute(f'UPDATE CASH SET CASH = {data.get(str(uid))} WHERE id = "{uid}"')
    
 async def inventory_prefetcher():
+    """
+    Prefetches the data from the database and stores in the json file.
+    """
     prefetched_inventory_data = {}
     prefetcher_inventory_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
     db = con.create_conn()
@@ -79,6 +98,9 @@ async def inventory_prefetcher():
             json.dump(prefetched_inventory_data, f, indent=4)
 
 async def inventory_postsyncer(uid_list):
+    """
+    Syncs the data from the json file to the database.
+    """
     postsyncer_inventory_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
     with open(postsyncer_inventory_file) as f:
         data = json.load(f)
@@ -92,6 +114,9 @@ async def inventory_postsyncer(uid_list):
 
 
 async def add_item(uid, item ,amount):
+    """
+    Adds the item to their inventory data.
+    """
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
 
     with open(prefetcher_file) as f:
@@ -106,6 +131,9 @@ async def add_item(uid, item ,amount):
 
 
 async def item_remove(uid,item, amount):
+    """
+    Removes the item to their inventory data.
+    """
     prefetcher_file = os.path.join(os.path.dirname(__file__), "./prefetch_data/inventory_cache.json")
 
     with open(prefetcher_file) as f:

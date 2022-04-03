@@ -11,6 +11,7 @@ class Moderation(commands.Cog):
     @commands.has_permissions(ban_members=True)
     async def ban(self, ctx, member: discord.Member, *, reason=None):
         name = member.nick or member.name
+
         await member.ban(reason=reason)
         await ctx.channel.send(f"{name} has been banned.")
 
@@ -89,6 +90,7 @@ class Moderation(commands.Cog):
     @commands.has_permissions(manage_permissions=True)
     async def unmute(self, ctx, member: discord.Member):
         mutedrole = discord.utils.get(ctx.guild.roles, name="Muted")
+        
         await member.remove_roles(mutedrole)
         await ctx.send(f"Unmuted {member.mention}")
 

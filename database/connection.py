@@ -7,6 +7,9 @@ read_dotenv(dotenv_path)
 
 
 def create_conn():
+    """
+    Creates the MySQL connection object.
+    """
     conn = mc.connect(
         host=os.getenv("host"),
         user=os.getenv("user"),

@@ -14,6 +14,7 @@ class Utility(commands.Cog):
             return
         if not member:
             member = ctx.message.author
+            
         userAvatar = member.avatar_url
 
         embed = discord.Embed(colour=member.color, timestamp=ctx.message.created_at)

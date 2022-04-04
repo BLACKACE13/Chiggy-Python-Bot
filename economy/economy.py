@@ -107,7 +107,7 @@ class Bot(commands.Cog):
             await ctx.send(f"**{ctx.author.name}** || purchased {amount} {item} for {price} <:chigs:937640062332571699>!" )
 
     @commands.cooldown(1, 15, commands.BucketType.user)
-    @commands.command()
+    @commands.command(name='inventory',aliases=['inv'])
     async def inv(self, ctx):
         prefetcher_file = os.path.join(os.path.dirname(__file__), "../database/prefetch_data/inventory_cache.json")
         with open(prefetcher_file) as f:

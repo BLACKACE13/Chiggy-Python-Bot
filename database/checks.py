@@ -51,5 +51,15 @@ async def table_check():
     """
     db = con.create_conn()
     cursor = db.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS CASH(id VARCHAR(255) , cash BIGINT DEFAULT 20000)")
-    cursor.execute("CREATE TABLE IF NOT EXISTS INVENTORY(id VARCHAR(255) , tea BIGINT, coffee BIGINT,cookie BIGINT,dog BIGINT,phone BIGINT,smartwatch BIGINT,rose BIGINT)")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS CASH
+    (id VARCHAR(255),
+    cash BIGINT DEFAULT 20000)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS INVENTORY
+    (id VARCHAR(255),
+    tea BIGINT,
+    coffee BIGINT,
+    cookie BIGINT,
+    dog BIGINT,
+    phone BIGINT,
+    smartwatch BIGINT,
+    rose BIGINT)""")

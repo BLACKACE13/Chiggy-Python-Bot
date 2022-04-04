@@ -107,8 +107,9 @@ class Bot(commands.Cog):
             await ctx.send(f"**{ctx.author.name}** || purchased {amount} {item} for {price} <:chigs:937640062332571699>!" )
 
     @commands.cooldown(1, 15, commands.BucketType.user)
-    @commands.command(name='inventory',aliases=['inv'])
+    @commands.command()
     async def inv(self, ctx):
+        await checks.user_check_inventory(ctx.author.id)
         prefetcher_file = os.path.join(os.path.dirname(__file__), "../database/prefetch_data/inventory_cache.json")
         with open(prefetcher_file) as f:
             inventory_data = json.load(f)
@@ -118,6 +119,8 @@ class Bot(commands.Cog):
             if user_data[item] > 0:
                 inv =  inv + item.title() +  ' - ' + str(user_data[item]) + "\n"
 
+        if inv == "":
+            inv = "Inventory is empty!"
         embed = discord.Embed(
                 title=f"{ctx.author.name}'s Inventory",
                 description=f"{inv}",
@@ -125,7 +128,6 @@ class Bot(commands.Cog):
             )
 
         await ctx.channel.send(embed = embed)
-
 
 def setup(bot):
     bot.add_cog(Bot(bot))

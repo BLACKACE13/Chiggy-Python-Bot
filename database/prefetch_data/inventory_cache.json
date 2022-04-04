@@ -1,9 +1,27 @@
 {
     "928181878979194932": {
-        "tea": 1,
-        "coffee": 2,
+        "tea": 0,
+        "coffee": 0,
         "cookie": 0,
-        "dog": 1,
+        "dog": 0,
+        "phone": 0,
+        "smartwatch": 0,
+        "rose": 0
+    },
+    "928289122207014953": {
+        "tea": 0,
+        "coffee": 0,
+        "cookie": 2,
+        "dog": 0,
+        "phone": 1,
+        "smartwatch": 0,
+        "rose": 0
+    },
+    "925044739240255568": {
+        "tea": 0,
+        "coffee": 0,
+        "cookie": 1,
+        "dog": 0,
         "phone": 0,
         "smartwatch": 0,
         "rose": 0

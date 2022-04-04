@@ -107,7 +107,14 @@ async def inventory_postsyncer(uid_list):
     db = con.create_conn()
     cursor = db.cursor()
     for uid in uid_list:
-        cursor.execute(f'UPDATE INVENTORY SET tea = {data[(uid)]["tea"]} ,coffee =  {data[uid]["coffee"]},cookie = {data[uid]["cookie"]},dog = {data[uid]["dog"]},phone = {data[uid]["phone"]} , smartwatch = {data[uid]["smartwatch"]} , rose = {data[uid]["rose"]} WHERE id = "{uid}"')
+        cursor.execute(f'''UPDATE INVENTORY SET
+        tea = {data[(uid)]["tea"]},
+        coffee =  {data[uid]["coffee"]},
+        cookie = {data[uid]["cookie"]},
+        dog = {data[uid]["dog"]},
+        phone = {data[uid]["phone"]},
+        smartwatch = {data[uid]["smartwatch"]},
+        rose = {data[uid]["rose"]} WHERE id = "{uid}"''')
 
 
 async def add_item(uid, item ,amount):

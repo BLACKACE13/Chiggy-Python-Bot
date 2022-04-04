@@ -59,15 +59,22 @@ class Bot(commands.Cog):
 
         if prob == 'yes':
             beg_amount=random.randint(50,350)
-            phrases=[f'Oh poor! I have only {beg_amount} <:chigs:937640062332571699> to give.',f'You got {beg_amount} <:chigs:937640062332571699> from the strangers passing by.',
-            f'What a pity! Here {beg_amount} <:chigs:937640062332571699> ...Hope it would help you a bit.',f'Here **{ctx.author.name}**, take {beg_amount} <:chigs:937640062332571699> ...have a great day! UwU']
+            phrases=[
+            f'Oh poor! I have only {beg_amount} <:chigs:937640062332571699> to give.',
+            f'You got {beg_amount} <:chigs:937640062332571699> from the strangers passing by.',
+            f'What a pity! Here {beg_amount} <:chigs:937640062332571699> ...Hope it would help you a bit.',
+            f'Here **{ctx.author.name}**, take {beg_amount} <:chigs:937640062332571699> ...have a great day! UwU'
+            ]
 
             await ctx.reply(random.choice(phrases))
             await functions.add_balance(ctx.author.id,beg_amount)
 
         if prob != 'yes':
-            phrases=['Can you please stop begging everytime!','You may just ask your friend to give you some chigs instead of begging.',
-            'Ask me later, not in the mood now xD .']
+            phrases=[
+            'Can you please stop begging everytime!',
+            'You may just ask your friend to give you some chigs instead of begging.',
+            'Ask me later, not in the mood now xD .'
+            ]
             
             await ctx.reply(random.choice(phrases))
         await functions.cash_postsyncer([ctx.author.id])

@@ -43,7 +43,7 @@ for filname in os.listdir("./economy"):
         bot.load_extension(f"economy.{filname[:-3]}")
 
 
-bot.run(os.getenv("TOKEN"))
+bot.run(os.getenv("TOKEN1"))
 
 
 # py -Bc "import pathlib; [p.unlink() for p in pathlib.Path('.').rglob('*.py[co]')]"

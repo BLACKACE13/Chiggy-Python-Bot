@@ -126,9 +126,7 @@ class Bot(commands.Cog):
     @commands.command()
     async def inv(self, ctx):
         await checks.user_check_inventory(ctx.author.id)
-        prefetcher_file = os.path.join(
-            os.path.dirname(__file__), "../database/prefetch_data/inventory_cache.json"
-        )
+        prefetcher_file = os.path.join(os.path.dirname(__file__), "../database/prefetch_data/inventory_cache.json")
         with open(prefetcher_file) as f:
             inventory_data = json.load(f)
         user_data = inventory_data[str(ctx.author.id)]
@@ -146,7 +144,6 @@ class Bot(commands.Cog):
         )
 
         await ctx.channel.send(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(Bot(bot))

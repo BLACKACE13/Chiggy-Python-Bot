@@ -3,13 +3,36 @@ from discord.ext import commands
 
 help_data = {
     "fields": [
-       
-        {"inline": False,"name": "> <:catpeek:932317409170300948> ANIMALS ","value": "```cat , dog , bird , fox , kangaroo , koala , panda , raccoon ```"},
-        {"inline": False, "name": "> <a:aayu:858252750788624394> ACTIONS ", "value": "```tickle , hug ```"},
-        {"inline": False, "name": "> <:chigs:937640062332571699> ECONOMY", "value": "```rolldice , coinflip , shop , cash , send , beg ```"},
-        {"inline": False,"name": "> <:devil:943507920732184636> MODERATION","value": "```kick , ban , mute , unmute , clear```"},
-        {"inline": False,"name": "> <a:danci:943744143941832794> MUSIC","value": "```join , play , skip , disconnect , queue ```"},
-        {"inline": False,"name": "> <:aliensmile:855320659793149962> UTILITY","value": "```botinfo , userinfo , serverinfo , avatar , ping , prefix , calculate , spotify ```"}
+        {
+            "inline": False,
+            "name": "> <:catpeek:932317409170300948> ANIMALS ",
+            "value": "```cat , dog , bird , fox , kangaroo , koala , panda , raccoon ```",
+        },
+        {
+            "inline": False,
+            "name": "> <a:aayu:858252750788624394> ACTIONS ",
+            "value": "```tickle , hug ```",
+        },
+        {
+            "inline": False,
+            "name": "> <:chigs:973011363041517598> ECONOMY",
+            "value": "```rolldice , coinflip , shop , cash , send , beg ```",
+        },
+        {
+            "inline": False,
+            "name": "> <:devil:973011718160646195> MODERATION",
+            "value": "```kick , ban , mute , unmute , clear```",
+        },
+        {
+            "inline": False,
+            "name": "> <a:danci:973011934716760075> MUSIC",
+            "value": "```join , play , skip , disconnect , queue ```",
+        },
+        {
+            "inline": False,
+            "name": "> <:aliensmile:855320659793149962> UTILITY",
+            "value": "```botinfo , userinfo , serverinfo , avatar , ping , prefix , calculate , spotify ```",
+        },
     ],
     "color": 16760333,
     "type": "rich",
@@ -50,7 +73,7 @@ class Main(commands.Cog):
 
     @commands.command(aliases=["botinfo"])
     async def stats(self, ctx):
-        
+
         ram_aval = psutil.virtual_memory().available * 1e-09
         ram_total = psutil.virtual_memory().total * 1e-09
         process = psutil.Process(os.getpid())

@@ -1,6 +1,6 @@
-discord.py[voice]
+discord.py[voice] == 1.7.3
 requests
 py_dotenv
 animalapi
 psutil
-mysql
+mysql-connector-python

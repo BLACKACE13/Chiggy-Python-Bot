@@ -15,6 +15,6 @@ def create_conn():
         user=os.getenv("user"),
         password=os.getenv("password"),
         database=os.getenv("database"),
-        autocommit = True
+        autocommit=True,
     )
     return conn

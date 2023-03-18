@@ -1,4 +1,4 @@
-import discord                     
+import discord
 from discord.ext import commands
 
 import os
@@ -7,15 +7,15 @@ import json
 
 from discord.ext import commands
 
-py_dotenv.read_dotenv(os.path.join(os.path.dirname(__file__), ".env")) 
+py_dotenv.read_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 intents = discord.Intents.all()
 
+
 def get_prefix(bot, message):
-    
     with open("./resources/prefixes.json") as f:
         prefixes = json.load(f)
-    default_prefix = prefixes.get('default')
+    default_prefix = prefixes.get("default")
 
     if not message.guild:
         return commands.when_mentioned_or(default_prefix)(bot, message)
@@ -24,10 +24,16 @@ def get_prefix(bot, message):
         return commands.when_mentioned_or(default_prefix)(bot, message)
 
     prefix = prefixes[str(message.guild.id)]
-    return commands.when_mentioned_or(prefix , default_prefix)(bot, message)
+    return commands.when_mentioned_or(prefix, default_prefix)(bot, message)
 
 
-bot = commands.Bot(command_prefix=get_prefix, intents=intents, case_insensitive=True, strip_after_prefix = True , help_command = None)
+bot = commands.Bot(
+    command_prefix=get_prefix,
+    intents=intents,
+    case_insensitive=True,
+    strip_after_prefix=True,
+    help_command=None,
+)
 
 
 for filname in os.listdir(f"./commands"):

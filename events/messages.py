@@ -1,6 +1,6 @@
 from discord.ext import commands
 import utils.messageprocessor as messageprocessor
-from database import checks 
+from database import checks
 
 
 class Messages(commands.Cog):
@@ -14,9 +14,7 @@ class Messages(commands.Cog):
         await messageprocessor.react(self.bot, message)
         await checks.user_check_cash(message.author.id)
         if "chiggy-ai" in message.channel.name:
-           await messageprocessor.react(self.bot, message)
-        
-           
+            await messageprocessor.react(self.bot, message)
 
 
 def setup(bot):

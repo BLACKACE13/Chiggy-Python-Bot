@@ -73,7 +73,6 @@ class Main(commands.Cog):
 
     @commands.command(aliases=["botinfo"])
     async def stats(self, ctx):
-
         ram_aval = psutil.virtual_memory().available * 1e-09
         ram_total = psutil.virtual_memory().total * 1e-09
         process = psutil.Process(os.getpid())

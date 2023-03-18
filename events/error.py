@@ -106,7 +106,6 @@ class Events(commands.Cog):
                 ),
                 delete_after=10,
             )
-       
 
 
 def setup(bot):

@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 
+
 class Moderation(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -19,10 +20,10 @@ class Moderation(commands.Cog):
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.bot_has_guild_permissions(manage_messages=True, send_messages=True)
     @commands.command(aliases=["purge"])
-    async def clear(self, ctx,amount=5):
+    async def clear(self, ctx, amount=5):
         deleted_count = 0
         channel = ctx.message.channel
-        
+
         if amount > 1000:
             raise commands.BadArgument(
                 f" <:ahemahem:876323457112100914> Hey!! **|** **{ctx.author.name}** Sorry but you can't make me delete that amount of messages at once."
@@ -60,7 +61,6 @@ class Moderation(commands.Cog):
     @commands.cooldown(1, 5, commands.BucketType.user)
     @commands.has_permissions(manage_messages=True)
     async def mute(self, ctx, member: discord.Member, *, reason=None):
-
         guild = ctx.guild
         mutedrole = discord.utils.get(guild.roles, name="Muted")
 
@@ -90,7 +90,7 @@ class Moderation(commands.Cog):
     @commands.has_permissions(manage_permissions=True)
     async def unmute(self, ctx, member: discord.Member):
         mutedrole = discord.utils.get(ctx.guild.roles, name="Muted")
-        
+
         await member.remove_roles(mutedrole)
         await ctx.send(f"Unmuted {member.mention}")
 

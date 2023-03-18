@@ -14,7 +14,7 @@ class Utility(commands.Cog):
             return
         if not member:
             member = ctx.message.author
-            
+
         userAvatar = member.avatar_url
 
         embed = discord.Embed(colour=member.color, timestamp=ctx.message.created_at)
@@ -97,7 +97,6 @@ class Utility(commands.Cog):
     @commands.cooldown(1, 60, commands.BucketType.guild)
     @commands.command()
     async def prefix(self, ctx, *, prefix):
-
         with open(r"./resources/prefixes.json") as f:
             prefixes = json.load(f)
 
@@ -158,7 +157,6 @@ class Utility(commands.Cog):
 
     @commands.command()
     async def spotify(self, ctx, user: discord.Member = None):
-
         user = user or ctx.author
         activity_list = []
         for activity in user.activities:

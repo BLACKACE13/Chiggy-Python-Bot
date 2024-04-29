@@ -30,9 +30,11 @@ Chiggy is a versatile Discord bot designed to enhance your server experience wit
 ## IMAGES 📸
 
 Here are some screenshots showcasing Chiggy in action:
-- ![Screenshot 2](images/Chiggy_Profile_Display.png)
-- ![Screenshot 1](images/help.png)
 
+<div style="display: flex; justify-content: center;">
+  <img src="/images/Chiggy_Profile_Display.png" alt="Chiggy Profile Display" width="300" />
+  <img src="/images/help.png" alt="Help" width="420" />
+</div>
 
 ## ABOUT TEAM 💪🏻
 

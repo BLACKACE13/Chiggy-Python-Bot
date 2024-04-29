@@ -18,7 +18,7 @@ Chiggy is a versatile Discord bot designed to enhance your server experience wit
 - Challenge your friends to exciting mini-games right within Discord.
 - From trivia quizzes to word games, there's never a dull moment with Chiggy.
 
-## USAGE 😎
+## USAGE 👻
 
 - **Prefix**: The universal prefix for Chiggy commands is `_`.
 - To view the list of available commands, simply type `_help` or `{changed_prefix} help`.

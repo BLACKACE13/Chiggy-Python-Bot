@@ -1,10 +1,10 @@
 # ✨ Chiggy's Documentation
 
-## OVERVIEW
+## OVERVIEW 💫
 
 Chiggy is a versatile Discord bot designed to enhance your server experience with a wide range of features. From moderation tools to virtual economy systems and entertaining mini-games, Chiggy has something for everyone. With an intuitive command structure and seamless integration, Chiggy is the perfect addition to any Discord community.
 
-## FEATURES
+## FEATURES 📒
 
 ### Moderation Tools
 - Keep your server in check with Chiggy's robust moderation tools, including ban, kick, mute, and message clearing functionalities.
@@ -18,7 +18,7 @@ Chiggy is a versatile Discord bot designed to enhance your server experience wit
 - Challenge your friends to exciting mini-games right within Discord.
 - From trivia quizzes to word games, there's never a dull moment with Chiggy.
 
-## USAGE
+## USAGE 😎
 
 - **Prefix**: The universal prefix for Chiggy commands is `_`.
 - To view the list of available commands, simply type `_help` or `{changed_prefix} help`.
@@ -27,15 +27,14 @@ Chiggy is a versatile Discord bot designed to enhance your server experience wit
 2. Set up the necessary permissions for Chiggy to perform moderation actions and interact with users.
 3. Customize Chiggy's settings and configure any additional features according to your preferences.
 
-## IMAGES
+## IMAGES 📸
 
 Here are some screenshots showcasing Chiggy in action:
+- ![Screenshot 2](images/Chiggy_Profile_Display.png)
+- ![Screenshot 1](images/help.png)
 
-- ![Screenshot 1](https://example.com/screenshot1.png)
-- ![Screenshot 2](https://example.com/screenshot2.png)
-- ![Screenshot 3](https://example.com/screenshot3.png)
 
-## ABOUT TEAM
+## ABOUT TEAM 💪🏻
 
 - [Alorika Jain](https://github.com/BLACKACE13) - Developer
 - [Ashutosh Das](https://github.com/dashutosh04) - Developer

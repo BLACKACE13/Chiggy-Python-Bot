@@ -163,6 +163,7 @@ async def remove_item(uid, item, amount):
     """
     Removes the item to their inventory data.
     """
+    
     prefetcher_file = os.path.join(
         os.path.dirname(__file__), "./prefetch_data/inventory_cache.json"
     )
